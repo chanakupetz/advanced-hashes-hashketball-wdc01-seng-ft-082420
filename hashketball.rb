@@ -1,4 +1,5 @@
-# Write your code below game_hash
+require "pry"
+
 def game_hash
   {
     home: {
@@ -126,4 +127,17 @@ def game_hash
   }
 end
 
-# Write code here
+def all_players
+  game_hash[:home][:players].merge game_hash([:away][:players])
+end #create a helper method that will merge all players so it can iterate through them all easily
+
+
+    def num_points_scored(player_name)
+      game_hash.each do |location, team_data|
+        team_data[:players].each do |player|
+          if player[:player_name] == player_name
+            return player[:points]
+              end
+            end
+          end
+        end
